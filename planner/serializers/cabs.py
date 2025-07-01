@@ -21,7 +21,7 @@ class CabListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cab
         fields = [
-            'id', 'name', 'category_name', 'vehicle_model',
+            'id', 'nam', 'category_name', 'vehicle_model',
             'driver_name', 'price_per_km', 'is_available', 'description'
         ]
 
