@@ -3,34 +3,34 @@ from django.db import models
 class HotelCategory(models.Model):
     name = models.CharField(max_length=50, unique=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class RoomType(models.Model):
     name = models.CharField(max_length=50, unique=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class DocumentType(models.Model):
     name = models.CharField(max_length=50, unique=True)  # e.g., GST
     description = models.TextField(blank=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class ActivityType(models.Model):
     name = models.CharField(max_length=50, unique=True)
     description = models.TextField(blank=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
     
 
 class Amenity(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class Activity(models.Model):
@@ -39,7 +39,7 @@ class Activity(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
 
-    def _str_(self):
+    def __str__(self):  
         return self.name
 
 class Hotel(models.Model):
@@ -53,7 +53,7 @@ class Hotel(models.Model):
     is_approved = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class HotelDocument(models.Model):
@@ -61,7 +61,7 @@ class HotelDocument(models.Model):
     document_type = models.ForeignKey(DocumentType, on_delete=models.SET_NULL, null=True)
     file = models.FileField(upload_to='hotel_documents/')
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.hotel.name} - {self.document_type}"
 
 class Driver(models.Model):
@@ -70,7 +70,7 @@ class Driver(models.Model):
     id_proof_doc = models.FileField(upload_to='driver_docs/')
     address_proof_doc = models.FileField(upload_to='driver_docs/')
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class Cab(models.Model):
@@ -81,7 +81,7 @@ class Cab(models.Model):
     driver = models.OneToOneField(Driver, on_delete=models.CASCADE, related_name='cab')
     is_verified = models.BooleanField(default=False)
 
-    def _str_(self):
+    def __str__(self):
         return self.vehicle_number
 
 class Plan(models.Model):
@@ -92,5 +92,5 @@ class Plan(models.Model):
     cabs = models.ManyToManyField(Cab, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.plan_id
