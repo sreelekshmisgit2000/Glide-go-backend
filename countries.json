@@ -1,0 +1,37 @@
+[
+  {
+    "model": "planner.country",
+    "pk": 1,
+    "fields": {
+      "name": "Australia"
+    }
+  },
+  {
+    "model": "planner.country",
+    "pk": 2,
+    "fields": {
+      "name": "Brazil"
+    }
+  },
+  {
+    "model": "planner.country",
+    "pk": 3,
+    "fields": {
+      "name": "Canada"
+    }
+  },
+  {
+    "model": "planner.country",
+    "pk": 4,
+    "fields": {
+      "name": "Denmark"
+    }
+  },
+  {
+    "model": "planner.country",
+    "pk": 5,
+    "fields": {
+      "name": "India"
+    }
+  }
+]
